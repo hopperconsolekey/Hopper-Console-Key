@@ -575,7 +575,7 @@ body {
   .nav-btn { padding: 10px 12px; margin-bottom: 3px; }
 }
 
-/* === STYLE MUSIC PLAYER TRẮNG MỜ SÁNG - SIÊU TIN TẾ === */
+/* === STYLE MUSIC PLAYER TRẮNG MỜ SÁNG - SIÊU TINH TẾ === */
 .music-player {
   position: fixed;
   bottom: 25px;
@@ -682,9 +682,11 @@ body {
 
 .volume-container { display: none !important; }
 
-/* FIX KHUNG "Hopper App – Có thực sự đáng tải?" bị che bên phải */
-.premium-card {
-  padding: 24px !important;           /* Giảm padding để khung nhỏ gọn hơn */
+/* ============================================= */
+/* STYLE RIÊNG CHO KHUNG "Hopper App – Có thực sự đáng tải?" (không ảnh hưởng các premium-card khác) */
+/* ============================================= */
+.premium-card:has(h3:contains("Có thực sự đáng tải")) {
+  padding: 24px !important;           /* Giảm padding để nhỏ gọn */
   overflow: visible !important;       /* Bỏ cắt nội dung */
   max-width: 100% !important;
   box-sizing: border-box !important;
@@ -692,36 +694,41 @@ body {
   margin-right: auto !important;
 }
 
-.premium-card > div:not(.card-glow) {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow-x: auto !important;        /* Cho phép scroll nếu cần */
-  padding-right: 12px;                /* Thêm khoảng trống bên phải */
+.premium-card:has(h3:contains("Có thực sự đáng tải")) .card-glow {
+  display: none !important;           /* Tắt glow nếu gây tràn */
 }
 
-.premium-card .pros-cons-column {
-  min-width: 0 !important;            /* Cho phép co lại */
-  flex: 1 1 45% !important;           /* Linh hoạt hơn */
-  padding: 20px !important;           /* Giảm padding cột */
+.premium-card:has(h3:contains("Có thực sự đáng tải")) > div:not(.card-glow) {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  padding-right: 12px !important;     /* Thêm khoảng trống bên phải */
+}
+
+.premium-card:has(h3:contains("Có thực sự đáng tải")) .pros-cons-column {
+  min-width: 0 !important;
+  flex: 1 1 45% !important;
+  padding: 20px !important;
   box-sizing: border-box !important;
 }
 
+/* Mobile: xếp dọc, nhỏ hơn nữa */
 @media (max-width: 768px) {
-  .premium-card {
+  .premium-card:has(h3:contains("Có thực sự đáng tải")) {
     padding: 20px !important;
     margin: 0 8px 24px !important;
   }
 
-  .premium-card h3 {
+  .premium-card:has(h3:contains("Có thực sự đáng tải")) h3 {
     font-size: 22px !important;
   }
 
-  .premium-card .pros-cons-column {
-    flex: 1 1 100% !important;        /* Stack dọc trên mobile */
+  .premium-card:has(h3:contains("Có thực sự đáng tải")) .pros-cons-column {
+    flex: 1 1 100% !important;
     margin-bottom: 16px !important;
   }
 
-  .premium-card > div[style*="display: grid"] {
+  .premium-card:has(h3:contains("Có thực sự đáng tải")) > div[style*="display: grid"] {
     grid-template-columns: 1fr !important;
     overflow-x: auto !important;
     padding-right: 12px !important;
