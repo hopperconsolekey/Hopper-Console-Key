@@ -273,7 +273,6 @@ body {
 .discount-input {
   width: 100%; max-width: 340px; padding: 14px 16px;
   border-radius: 12px; border: 1px solid var(--border);
-  /* Tiếp nối từ .discount-input */
   background: rgba(255,255,255,0.05); color: white; font-size: 15px;
 }
 
@@ -576,27 +575,24 @@ body {
   .nav-btn { padding: 10px 12px; margin-bottom: 3px; }
 }
 
-/* === STYLE MUSIC PLAYER TRẮNG MỜ SÁNG - SIÊU TINH TẾ === */
+/* === STYLE MUSIC PLAYER TRẮNG MỜ SÁNG - SIÊU TIN TẾ === */
 .music-player {
   position: fixed;
   bottom: 25px;
   right: 15px;
   width: 140px;
-  /* Hiệu ứng nền kính trắng mờ */
   background: rgba(255, 255, 255, 0.1); 
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  /* Viền sáng bóng */
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 24px;
   
-  display: none; /* Ẩn lúc đầu, JS sẽ hiện sau */
+  display: none; 
   flex-direction: column;
   align-items: center;
   padding: 12px 10px;
   z-index: 10000;
   
-  /* Đổ bóng lan tỏa màu sáng */
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), 
               inset 0 0 10px rgba(255, 255, 255, 0.1);
   
@@ -613,7 +609,7 @@ body {
 .music-player .track-title {
   font-size: 10px;
   font-weight: 800;
-  color: #ffffff; /* Chữ trắng cho đồng bộ */
+  color: #ffffff;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   white-space: nowrap;
@@ -653,14 +649,12 @@ body {
 #playPauseBtn {
   width: 36px;
   height: 36px;
-  /* Nút Play trắng mờ rực rỡ */
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
-/* Icon Material tinh chỉnh */
 .music-player button .material-symbols-rounded { 
   font-size: 18px !important; 
   font-variation-settings: 'FILL' 1;
@@ -682,10 +676,54 @@ body {
   height: 100%;
   width: 0%;
   background: #ffffff;
-  /* Thanh chạy có hào quang trắng */
   box-shadow: 0 0 10px #ffffff, 0 0 5px rgba(255, 255, 255, 0.5);
   transition: width 0.1s linear;
 }
 
 .volume-container { display: none !important; }
 
+/* FIX KHUNG "Hopper App – Có thực sự đáng tải?" bị che bên phải */
+.premium-card {
+  padding: 24px !important;           /* Giảm padding để khung nhỏ gọn hơn */
+  overflow: visible !important;       /* Bỏ cắt nội dung */
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.premium-card > div:not(.card-glow) {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;        /* Cho phép scroll nếu cần */
+  padding-right: 12px;                /* Thêm khoảng trống bên phải */
+}
+
+.premium-card .pros-cons-column {
+  min-width: 0 !important;            /* Cho phép co lại */
+  flex: 1 1 45% !important;           /* Linh hoạt hơn */
+  padding: 20px !important;           /* Giảm padding cột */
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+  .premium-card {
+    padding: 20px !important;
+    margin: 0 8px 24px !important;
+  }
+
+  .premium-card h3 {
+    font-size: 22px !important;
+  }
+
+  .premium-card .pros-cons-column {
+    flex: 1 1 100% !important;        /* Stack dọc trên mobile */
+    margin-bottom: 16px !important;
+  }
+
+  .premium-card > div[style*="display: grid"] {
+    grid-template-columns: 1fr !important;
+    overflow-x: auto !important;
+    padding-right: 12px !important;
+  }
+}
