@@ -49,29 +49,24 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
 
-/* ────────────────────────────────────────────────
-   TÍCH XANH VERIFIED (cho Võ Minh Phát)
-───────────────────────────────────────────────── */
+/* Tích xanh verified CHÍNH THỨC (Material Symbols) */
 .verified-badge {
-  color: #1DA1F2;           /* Màu xanh Twitter/X chuẩn */
-  font-size: 1.35em;
-  line-height: 1;
+  color: #1DA1F2;                   /* Màu xanh Twitter/X chính xác */
+  font-size: 28px;                  /* Kích thước đẹp, cân đối */
   vertical-align: middle;
-  margin-left: 6px;
+  margin-left: 8px;
   position: relative;
-  top: -2px;
-  font-weight: bold;
+  top: -3px;
+  font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;
   transition: all 0.25s ease;
 }
 
 .dev-name-container:hover .verified-badge {
-  transform: scale(1.18);
-  color: #60a5fa;
+  transform: scale(1.15);
+  filter: brightness(1.15);
 }
 
-/* ────────────────────────────────────────────────
-   STYLE CÁC MỤC TRONG PHẦN CHÍNH SÁCH
-───────────────────────────────────────────────── */
+/* Style các mục trong phần Chính sách */
 .policy-item {
   display: flex;
   gap: 16px;
@@ -106,7 +101,7 @@ body {
 }
 
 /* ────────────────────────────────────────────────
-   PHẦN CSS GỐC CỦA BẠN (tiếp nối)
+   PHẦN CSS GỐC ĐẦY ĐỦ
 ───────────────────────────────────────────────── */
 
 .overlay {
@@ -641,7 +636,7 @@ body {
   .nav-btn { padding: 10px 12px; margin-bottom: 3px; }
 }
 
-/* === STYLE MUSIC PLAYER TRẮNG MỜ SÁNG - SIÊU TINH TẾ === */
+/* === STYLE MUSIC PLAYER === */
 .music-player {
   position: fixed;
   bottom: 25px;
@@ -748,9 +743,7 @@ body {
 
 .volume-container { display: none !important; }
 
-/* ============================================= */
-/* STYLE RIÊNG CHO KHUNG "Hopper App – Có thực sự đáng tải?" */
-/* ============================================= */
+/* STYLE RIÊNG CHO KHUNG "Có thực sự đáng tải?" */
 .premium-card:has(h3:contains("Có thực sự đáng tải")) {
   padding: 24px !important;
   overflow: visible !important;
@@ -778,7 +771,7 @@ body {
   box-sizing: border-box !important;
 }
 
-/* Mobile */
+/* Mobile cho phần "Có thực sự đáng tải?" */
 @media (max-width: 768px) {
   .premium-card:has(h3:contains("Có thực sự đáng tải")) {
     padding: 20px !important;
@@ -801,21 +794,11 @@ body {
   }
 }
 
-/* Responsive bổ sung cho tên dev + badge */
+/* Responsive cho verified badge trên mobile */
 @media (max-width: 480px) {
-  .dev-name-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    text-align: center;
-  }
-  
-  .dev-name {
-    font-size: 32px;
-  }
-  
   .verified-badge {
-    font-size: 1.45em;
+    font-size: 24px;
+    margin-left: 6px;
+    top: -2px;
   }
 }
