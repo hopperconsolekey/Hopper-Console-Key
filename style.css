@@ -683,26 +683,17 @@ body {
 .volume-container { display: none !important; }
 
 /* ============================================= */
-/* STYLE RIÊNG CHO KHUNG "Hopper App – Có thực sự đáng tải?" (không ảnh hưởng các premium-card khác) */
+/* FIX RIÊNG KHUNG "Hopper App – Có thực sự đáng tải?" BỊ CHE BÊN PHẢI */
 /* ============================================= */
 .premium-card:has(h3:contains("Có thực sự đáng tải")) {
-  padding: 24px !important;           /* Giảm padding để nhỏ gọn */
-  overflow: visible !important;       /* Bỏ cắt nội dung */
+  padding: 24px !important;
+  overflow: visible !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
   margin-left: auto !important;
   margin-right: auto !important;
-}
-
-.premium-card:has(h3:contains("Có thực sự đáng tải")) .card-glow {
-  display: none !important;           /* Tắt glow nếu gây tràn */
-}
-
-.premium-card:has(h3:contains("Có thực sự đáng tải")) > div:not(.card-glow) {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow-x: auto !important;
-  padding-right: 12px !important;     /* Thêm khoảng trống bên phải */
+  padding-right: 160px !important;      /* Khoảng trống tránh music player */
+  padding-bottom: 140px !important;     /* Khoảng dưới tránh player che text */
 }
 
 .premium-card:has(h3:contains("Có thực sự đáng tải")) .pros-cons-column {
@@ -712,25 +703,29 @@ body {
   box-sizing: border-box !important;
 }
 
-/* Mobile: xếp dọc, nhỏ hơn nữa */
+/* Music player không che nội dung */
+.music-player {
+  right: 10px !important;
+  bottom: 20px !important;
+  width: 130px !important;
+  z-index: 9999 !important;
+}
+
+/* Mobile fix mạnh hơn */
 @media (max-width: 768px) {
   .premium-card:has(h3:contains("Có thực sự đáng tải")) {
-    padding: 20px !important;
-    margin: 0 8px 24px !important;
-  }
-
-  .premium-card:has(h3:contains("Có thực sự đáng tải")) h3 {
-    font-size: 22px !important;
+    padding: 20px 140px 160px 20px !important;
+    margin: 0 8px !important;
   }
 
   .premium-card:has(h3:contains("Có thực sự đáng tải")) .pros-cons-column {
-    flex: 1 1 100% !important;
+    flex: 1 1 100% !important;          /* Xếp dọc để không bị cắt */
     margin-bottom: 16px !important;
   }
 
-  .premium-card:has(h3:contains("Có thực sự đáng tải")) > div[style*="display: grid"] {
-    grid-template-columns: 1fr !important;
-    overflow-x: auto !important;
-    padding-right: 12px !important;
+  .music-player {
+    width: 120px !important;
+    right: 8px !important;
+    bottom: 15px !important;
   }
 }
